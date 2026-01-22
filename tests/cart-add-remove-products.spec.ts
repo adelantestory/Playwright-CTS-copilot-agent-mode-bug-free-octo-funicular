@@ -28,11 +28,11 @@ test.describe('Shopping Cart - Add and Remove Products', () => {
     // Step 3: Add 2 CatFlix Entertainment Portal to cart
     // Increase quantity to 1
     await page.getByRole('button', { name: 'Increase quantity of CatFlix Entertainment Portal' }).click();
-    await expect(page.locator('text=Quantity of CatFlix Entertainment Portal').locator('..').getByText('1')).toBeVisible();
+    await expect(page.getByLabel('Quantity of CatFlix Entertainment Portal', { exact: true })).toHaveText('1');
 
     // Increase quantity to 2
     await page.getByRole('button', { name: 'Increase quantity of CatFlix Entertainment Portal' }).click();
-    await expect(page.locator('text=Quantity of CatFlix Entertainment Portal').locator('..').getByText('2')).toBeVisible();
+    await expect(page.getByLabel('Quantity of CatFlix Entertainment Portal', { exact: true })).toHaveText('2');
 
     // Add to cart
     await page.getByRole('button', { name: 'Add 2 CatFlix Entertainment Portal to cart' }).click();
@@ -43,11 +43,11 @@ test.describe('Shopping Cart - Add and Remove Products', () => {
     // Step 4: Add 2 WhiskerCam Pro to cart
     // Increase quantity to 1
     await page.getByRole('button', { name: 'Increase quantity of WhiskerCam Pro' }).click();
-    await expect(page.locator('text=Quantity of WhiskerCam Pro').locator('..').getByText('1')).toBeVisible();
+    await expect(page.getByLabel('Quantity of WhiskerCam Pro', { exact: true })).toHaveText('1');
 
     // Increase quantity to 2
     await page.getByRole('button', { name: 'Increase quantity of WhiskerCam Pro' }).click();
-    await expect(page.locator('text=Quantity of WhiskerCam Pro').locator('..').getByText('2')).toBeVisible();
+    await expect(page.getByLabel('Quantity of WhiskerCam Pro', { exact: true })).toHaveText('2');
 
     // Add to cart
     await page.getByRole('button', { name: 'Add 2 WhiskerCam Pro to cart' }).click();
@@ -64,12 +64,12 @@ test.describe('Shopping Cart - Add and Remove Products', () => {
     
     // Verify CatFlix Entertainment Portal is in cart with quantity 2
     await expect(page.getByRole('heading', { name: 'CatFlix Entertainment Portal', level: 3 })).toBeVisible();
-    await expect(page.locator('text=Quantity of CatFlix Entertainment Portal').locator('..').getByText('2')).toBeVisible();
+    await expect(page.getByLabel('Quantity of CatFlix Entertainment Portal', { exact: true })).toHaveText('2');
     await expect(page.getByText('$179.98')).toBeVisible(); // 2 x $89.99
 
     // Verify WhiskerCam Pro is in cart with quantity 2
     await expect(page.getByRole('heading', { name: 'WhiskerCam Pro', level: 3 })).toBeVisible();
-    await expect(page.locator('text=Quantity of WhiskerCam Pro').locator('..').getByText('2')).toBeVisible();
+    await expect(page.getByLabel('Quantity of WhiskerCam Pro', { exact: true })).toHaveText('2');
     await expect(page.getByText('$254.98')).toBeVisible(); // 2 x $127.49 (with discount)
 
     // Verify order summary total

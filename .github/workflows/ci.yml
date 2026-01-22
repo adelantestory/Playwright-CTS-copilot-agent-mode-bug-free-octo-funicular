@@ -2,7 +2,7 @@ name: CI - Build and Test
 
 permissions:
   contents: read
-#  pull-requests: write
+  pull-requests: write
   issues: write
 
 on:
