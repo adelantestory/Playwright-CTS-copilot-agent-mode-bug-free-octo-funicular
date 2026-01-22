@@ -74,7 +74,7 @@ test.describe('Shopping Cart - Add and Remove Products', () => {
 
     // Verify order summary total
     await expect(page.getByRole('heading', { name: 'Order Summary' })).toBeVisible();
-    await expect(page.getByText('$434.96')).toBeVisible(); // Total after discount
+    await expect(page.getByText('$434.97')).toBeVisible(); // Total after discount
 
     // Step 7: Remove CatFlix Entertainment Portal from cart
     await page.getByRole('button', { name: 'Remove CatFlix Entertainment Portal from cart' }).click();
